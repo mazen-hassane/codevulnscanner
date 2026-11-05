@@ -1,0 +1,78 @@
+=======================================================
+        VULNERABILITY SCAN REPORT
+=======================================================
+  Timestamp      : 2026-08-06_16-46-28
+  Total findings : 8
+  CRITICAL       : 2
+  HIGH           : 6
+  MEDIUM         : 0
+  LOW            : 0
+=======================================================
+
+  FILE: target_code/target.c
+  ─────────────────────────────────────────────────
+
+    [CRITICAL] insecure-use-gets-fn
+    Reference : Semgrep
+    Line      : 27
+    Source    : semgrep
+    Code      :
+        gets(buffer);
+    ─────────────────────────────────────────────────
+
+    [HIGH] insecure-use-scanf-fn
+    Reference : Semgrep
+    Line      : 52
+    Source    : semgrep
+    Code      :
+        scanf("%s", username);  // ❌ no bounds checking
+    ─────────────────────────────────────────────────
+
+    [HIGH] insecure-use-scanf-fn
+    Reference : Semgrep
+    Line      : 55
+    Source    : semgrep
+    Code      :
+        scanf("%s", password);  // ❌ no bounds checking
+    ─────────────────────────────────────────────────
+
+    [HIGH] insecure-use-scanf-fn
+    Reference : Semgrep
+    Line      : 75
+    Source    : semgrep
+    Code      :
+        scanf("%s", cmd);
+    ─────────────────────────────────────────────────
+
+    [HIGH] insecure-use-scanf-fn
+    Reference : Semgrep
+    Line      : 90
+    Source    : semgrep
+    Code      :
+        scanf("%s", filename);
+    ─────────────────────────────────────────────────
+
+    [HIGH] insecure-use-string-copy-fn
+    Reference : Semgrep
+    Line      : 113
+    Source    : semgrep
+    Code      :
+        strcpy(ptr, "This string is too long for buffer");  // ❌ overflow
+    ─────────────────────────────────────────────────
+
+    [CRITICAL] use-after-free
+    Reference : N/A
+    Line      : 120 - 121
+    Source    : regex
+    Code      :
+        printf("After free: %s\n", ptr);
+        }
+    ─────────────────────────────────────────────────
+
+    [HIGH] insecure-use-scanf-fn
+    Reference : Semgrep
+    Line      : 140
+    Source    : semgrep
+    Code      :
+        scanf("%d", &choice);
+    ─────────────────────────────────────────────────

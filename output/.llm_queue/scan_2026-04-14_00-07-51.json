@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "timestamp": "2026-04-14_00-07-51",
+    "total": 10,
+    "critical": 3,
+    "high": 2,
+    "medium": 3,
+    "low": 2
+  },
+  "findings": [
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let output = Command::new(\"sh\")\n        .arg(\"-c\")",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let output = Command::new(\"sh\")\n        .arg(\"-c\")",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 20,
+      "line_end": 21,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": ".arg(\"-c\")\n        .arg(user_input)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "error-handling",
+      "severity": "LOW",
+      "reference": "N/A",
+      "code": ".expect(\"failed\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 32,
+      "line_end": 33,
+      "type": "error-handling",
+      "severity": "LOW",
+      "reference": "N/A",
+      "code": "let content = fs::read_to_string(file).unwrap();\n        println!(\"{}\", content);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "unsafe-code",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "unsafe {\n        let ptr = arr.as_ptr();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 52,
+      "line_end": 53,
+      "type": "unsafe-code",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "unsafe {\n        let y: f32 = mem::transmute(x);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "args",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let args: Vec<String> = env::args().collect();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 41,
+      "line_end": 45,
+      "type": "unsafe-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "unsafe {\n        let ptr = arr.as_ptr();\n        let val = *ptr.add(10);\n        println!(\"Unsafe val: {}\", val);\n    }",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 52,
+      "line_end": 55,
+      "type": "unsafe-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "unsafe {\n        let y: f32 = mem::transmute(x);\n        println!(\"Transmuted: {}\", y);\n    }",
+      "source": "semgrep"
+    }
+  ]
+}

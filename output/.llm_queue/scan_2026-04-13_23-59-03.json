@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "timestamp": "2026-04-13_23-59-03",
+    "total": 18,
+    "critical": 11,
+    "high": 5,
+    "medium": 2,
+    "low": 0
+  },
+  "findings": [
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 15,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "system($_GET['cmd']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 22,
+      "type": "file-inclusion",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "include($_GET['page']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 34,
+      "type": "weak-cryptography",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";\n    $res = mysqli_query($conn, $query);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "unserialize-use",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "$obj = unserialize($_COOKIE['data']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-command-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "exec-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "laravel-command-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "tainted-path-traversal",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "laravel-path-traversal",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 33,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "laravel-native-sql-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "$res = mysqli_query($conn, $query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 46,
+      "type": "phpinfo-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "phpinfo();",
+      "source": "semgrep"
+    }
+  ]
+}

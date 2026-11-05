@@ -1,0 +1,1100 @@
+=======================================================
+        VULNERABILITY SCAN REPORT
+=======================================================
+  Timestamp      : 2026-04-14_00-16-17
+  Total findings : 116
+  CRITICAL       : 43
+  HIGH           : 52
+  MEDIUM         : 19
+  LOW            : 2
+=======================================================
+
+  [CRITICAL] buffer-overflow
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 26 - 27
+  Code      :
+      gets(buffer);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] buffer-overflow
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 51 - 52
+  Code      :
+      scanf("%s", username);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] buffer-overflow
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 54 - 55
+  Code      :
+      scanf("%s", password);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] buffer-overflow
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 74 - 75
+  Code      :
+      scanf("%s", cmd);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] buffer-overflow
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 77 - 78
+  Code      :
+      sprintf(full_cmd, "ls %s", cmd);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] buffer-overflow
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 89 - 90
+  Code      :
+      scanf("%s", filename);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] kernel-vulnerability
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 110 - 111
+  Code      :
+      char *ptr = malloc(10);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] buffer-overflow
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 112 - 113
+  Code      :
+      strcpy(ptr, "This string is too long for buffer");
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] use-after-free
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 116 - 117
+  Code      :
+      free(ptr);
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] insecure-use-gets-fn
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 26
+  Code      :
+      gets(buffer);  // ❌ Buffer overflow
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] local-variable-malloc-free
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 119
+  Code      :
+      printf("After free: %s\n", ptr);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] formatted-sql-string
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 24
+  Code      :
+      ResultSet rs = stmt.executeQuery(query);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] objectinputstream-deserialization-servlets
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 41
+  Code      :
+      ObjectInputStream ois = new ObjectInputStream(req.getInputStream());
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] documentbuilderfactory-xxe-parameter-entity
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 55
+  Code      :
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] documentbuilderfactory-xxe-parse
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 55
+  Code      :
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] documentbuilderfactory-xxe
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 55
+  Code      :
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] documentbuilderfactory-disallow-doctype-decl-missing
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 56
+  Code      :
+      DocumentBuilder builder = factory.newDocumentBuilder();
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] code-string-concat
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 50
+  Code      :
+      let result = eval(expr);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] detect-child-process
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 65
+  Code      :
+      exec(cmd, (err, stdout, stderr) => {
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] tainted-exec
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 14
+  Code      :
+      system($_GET['cmd']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] exec-use
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 14
+  Code      :
+      system($_GET['cmd']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] tainted-path-traversal
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 21
+  Code      :
+      include($_GET['page']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] tainted-sql-string
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 33
+  Code      :
+      $query = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] phpinfo-use
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 46
+  Code      :
+      phpinfo();
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] tainted-sql-string
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 34
+  Code      :
+      query = "SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'"
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] sqlalchemy-execute-raw-query
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 38
+  Code      :
+      c.execute(query)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] subprocess-injection
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 57
+  Code      :
+      output = subprocess.check_output("ping -c 1 " + host, shell=True)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] tainted-os-command-stdlib-flask-secure-default
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 57
+  Code      :
+      output = subprocess.check_output("ping -c 1 " + host, shell=True)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] dangerous-subprocess-use
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 57
+  Code      :
+      output = subprocess.check_output("ping -c 1 " + host, shell=True)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] subprocess-shell-true
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 57
+  Code      :
+      output = subprocess.check_output("ping -c 1 " + host, shell=True)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] insecure-deserialization
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 70 - 71
+  Code      :
+      obj = pickle.loads(data)
+  Source    : regex + semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] tainted-pickle-flask
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 70
+  Code      :
+      obj = pickle.loads(data)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] path-traversal-open
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 83
+  Code      :
+      with open(filename, 'r') as f:
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] tainted-path-traversal-stdlib-flask
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 83
+  Code      :
+      with open(filename, 'r') as f:
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [CRITICAL] injection
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 19 - 20
+  Code      :
+      const user = await db.collection('users').findOne(req.body);
+          res.send(user ? "Logged in" : "Denied");
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] injection
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 50 - 51
+  Code      :
+      let result = eval(expr);
+              res.send(result.toString());
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] sql-injection
+  Reference : N/A
+  File      : target_code/test.java
+  Line      : 21 - 22
+  Code      :
+      Statement stmt = conn.createStatement();
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] insecure-deserialization
+  Reference : N/A
+  File      : target_code/test.java
+  Line      : 41 - 42
+  Code      :
+      ObjectInputStream ois = new ObjectInputStream(req.getInputStream());
+                  Object obj = ois.readObject();
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] insecure-deserialization
+  Reference : N/A
+  File      : target_code/test2.php
+  Line      : 7 - 8
+  Code      :
+      $obj = unserialize($_COOKIE['data']);
+      }
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] command-injection
+  Reference : N/A
+  File      : target_code/test2.php
+  Line      : 14 - 15
+  Code      :
+      system($_GET['cmd']);
+      }
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] file-inclusion
+  Reference : N/A
+  File      : target_code/test2.php
+  Line      : 21 - 22
+  Code      :
+      include($_GET['page']);
+      }
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] command-injection
+  Reference : N/A
+  File      : target_code/test2.rs
+  Line      : 19 - 20
+  Code      :
+      let output = Command::new("sh")
+              .arg("-c")
+  Source    : regex
+  ---------------------------------------------------
+
+  [CRITICAL] command-injection
+  Reference : N/A
+  File      : target_code/test2.rs
+  Line      : 20 - 21
+  Code      :
+      .arg("-c")
+              .arg(user_input)
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 9 - 10
+  Code      :
+      char username[32];
+          char password[32];
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 10 - 11
+  Code      :
+      char password[32];
+      };
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 13 - 14
+  Code      :
+      struct User users[MAX_USERS] = {
+          {"admin", "admin123"},
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 23 - 24
+  Code      :
+      char buffer[64];
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 35 - 36
+  Code      :
+      char input[128];
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] format-string
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 40 - 41
+  Code      :
+      printf(input);  
+      }
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 47 - 48
+  Code      :
+      char username[32];
+          char password[32];
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 48 - 49
+  Code      :
+      char password[32];
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 57 - 58
+  Code      :
+      if (strcmp(username, users[i].username) == 0 &&
+                  strcmp(password, users[i].password) == 0) {
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 58 - 59
+  Code      :
+      strcmp(password, users[i].password) == 0) {
+                  printf("Login success!\n");
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 71 - 72
+  Code      :
+      char cmd[128];
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 76 - 77
+  Code      :
+      char full_cmd[256];
+          sprintf(full_cmd, "ls %s", cmd);
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] dangerous-function
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 79 - 80
+  Code      :
+      system(full_cmd);
+      }
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 86 - 87
+  Code      :
+      char filename[128];
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] missing-validation
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 91 - 92
+  Code      :
+      FILE *f = fopen(filename, "r");
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] out-of-bounds-read
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 98 - 99
+  Code      :
+      char line[256];
+          while (fgets(line, sizeof(line), f)) {
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] missing-validation
+  Reference : N/A
+  File      : target_code/target.c
+  Line      : 110 - 111
+  Code      :
+      char *ptr = malloc(10);
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] unbounded-copy-to-stack-buffer
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 26
+  Code      :
+      gets(buffer);  // ❌ Buffer overflow
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] format-string-injection
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 40
+  Code      :
+      printf(input);  // ❌ format string vulnerability
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] insecure-use-scanf-fn
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 51
+  Code      :
+      scanf("%s", username);  // ❌ no bounds checking
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] insecure-use-scanf-fn
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 54
+  Code      :
+      scanf("%s", password);  // ❌ no bounds checking
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] insecure-use-scanf-fn
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 74
+  Code      :
+      scanf("%s", cmd);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] unbounded-copy-to-stack-buffer
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 77
+  Code      :
+      sprintf(full_cmd, "ls %s", cmd);  // ❌ injection
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] insecure-use-scanf-fn
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 89
+  Code      :
+      scanf("%s", filename);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] insecure-use-string-copy-fn
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 112
+  Code      :
+      strcpy(ptr, "This string is too long for buffer");  // ❌ overflow
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] insecure-use-scanf-fn
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 139
+  Code      :
+      scanf("%d", &choice);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] tainted-sql-from-http-request
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 21 - 24
+  Code      :
+      Statement stmt = conn.createStatement();
+      
+                  String query = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
+                  ResultSet rs = stmt.executeQuery(query);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] tainted-sql-from-http-request
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 24
+  Code      :
+      ResultSet rs = stmt.executeQuery(query);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] jdbc-sqli
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 24
+  Code      :
+      ResultSet rs = stmt.executeQuery(query);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] object-deserialization
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 41
+  Code      :
+      ObjectInputStream ois = new ObjectInputStream(req.getInputStream());
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] no-direct-response-writer
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 44
+  Code      :
+      resp.getWriter().println("Received: " + obj);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] eval-detected
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 50
+  Code      :
+      let result = eval(expr);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] direct-response-write
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 51
+  Code      :
+      res.send(result.toString());
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] express-fs-filename
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 80
+  Code      :
+      let data = fs.readFileSync(file);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] direct-response-write
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 81
+  Code      :
+      res.send(data.toString());
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] unserialize-use
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 7
+  Code      :
+      $obj = unserialize($_COOKIE['data']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] tainted-exec
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 14
+  Code      :
+      system($_GET['cmd']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] laravel-command-injection
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 14
+  Code      :
+      system($_GET['cmd']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] laravel-path-traversal
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 21
+  Code      :
+      include($_GET['page']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] avoid-pickle
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 70
+  Code      :
+      obj = pickle.loads(data)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] path-traversal-open
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 80 - 86
+  Code      :
+      filename = request.args.get('file')
+      
+          try:
+              with open(filename, 'r') as f:
+                  return f.read()
+          except Exception as e:
+              return str(e)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] debug-enabled
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 114
+  Code      :
+      app.run(debug=True)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [HIGH] path-traversal
+  Reference : N/A
+  File      : target_code/test2.py
+  Line      : 80 - 81
+  Code      :
+      filename = request.args.get('file')
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] prototype-pollution
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 26 - 27
+  Code      :
+      function merge(target, source) {
+          for (let key in source) {
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] prototype-pollution
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 28 - 29
+  Code      :
+      if (typeof source[key] === 'object') {
+                  target[key] = merge(target[key] || {}, source[key]);
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] prototype-pollution
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 29 - 30
+  Code      :
+      target[key] = merge(target[key] || {}, source[key]);
+              } else {
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] prototype-pollution
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 31 - 32
+  Code      :
+      target[key] = source[key];
+              }
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] prototype-pollution
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 39 - 40
+  Code      :
+      merge(obj, req.body);
+          res.json(obj);
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] xxe
+  Reference : N/A
+  File      : target_code/test.java
+  Line      : 55 - 56
+  Code      :
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                  DocumentBuilder builder = factory.newDocumentBuilder();
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] weak-cryptography
+  Reference : N/A
+  File      : target_code/test2.php
+  Line      : 33 - 34
+  Code      :
+      $query = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
+          $res = mysqli_query($conn, $query);
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] unsafe-code
+  Reference : N/A
+  File      : target_code/test2.rs
+  Line      : 41 - 42
+  Code      :
+      unsafe {
+              let ptr = arr.as_ptr();
+  Source    : regex
+  ---------------------------------------------------
+
+  [HIGH] unsafe-code
+  Reference : N/A
+  File      : target_code/test2.rs
+  Line      : 52 - 53
+  Code      :
+      unsafe {
+              let y: f32 = mem::transmute(x);
+  Source    : regex
+  ---------------------------------------------------
+
+  [MEDIUM] dont-call-system
+  Reference : Semgrep
+  File      : target_code/target.c
+  Line      : 79
+  Code      :
+      system(full_cmd);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] formatted-sql-string-deepsemgrep
+  Reference : Semgrep
+  File      : target_code/test.java
+  Line      : 24
+  Code      :
+      ResultSet rs = stmt.executeQuery(query);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] express-check-csurf-middleware-usage
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 4
+  Code      :
+      const app = express();
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] express-mongo-nosqli
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 19
+  Code      :
+      const user = await db.collection('users').findOne(req.body);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] eval-express
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 50
+  Code      :
+      let result = eval(expr);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] express-child-process
+  Reference : Semgrep
+  File      : target_code/test2.js
+  Line      : 65
+  Code      :
+      exec(cmd, (err, stdout, stderr) => {
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] tainted-command-injection
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 14
+  Code      :
+      system($_GET['cmd']);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] laravel-native-sql-injection
+  Reference : Semgrep
+  File      : target_code/test2.php
+  Line      : 34
+  Code      :
+      $res = mysqli_query($conn, $query);
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] generic-sql-flask
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 38
+  Code      :
+      c.execute(query)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] active-debug-code-flask
+  Reference : Semgrep
+  File      : target_code/test2.py
+  Line      : 114
+  Code      :
+      app.run(debug=True)
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] info-disclosure
+  Reference : N/A
+  File      : target_code/test2.py
+  Line      : 41 - 42
+  Code      :
+      return str(e)
+  Source    : regex
+  ---------------------------------------------------
+
+  [MEDIUM] info-disclosure
+  Reference : N/A
+  File      : target_code/test2.py
+  Line      : 60 - 61
+  Code      :
+      return str(e)
+  Source    : regex
+  ---------------------------------------------------
+
+  [MEDIUM] info-disclosure
+  Reference : N/A
+  File      : target_code/test2.py
+  Line      : 73 - 74
+  Code      :
+      return str(e)
+  Source    : regex
+  ---------------------------------------------------
+
+  [MEDIUM] info-disclosure
+  Reference : N/A
+  File      : target_code/test2.py
+  Line      : 86 - 87
+  Code      :
+      return str(e)
+  Source    : regex
+  ---------------------------------------------------
+
+  [MEDIUM] info-disclosure
+  Reference : N/A
+  File      : target_code/test2.py
+  Line      : 114
+  Code      :
+      app.run(debug=True)
+  Source    : regex
+  ---------------------------------------------------
+
+  [MEDIUM] authentication-weakness
+  Reference : N/A
+  File      : target_code/test2.js
+  Line      : 18 - 19
+  Code      :
+      app.post('/login', async (req, res) => {
+          const user = await db.collection('users').findOne(req.body);
+  Source    : regex
+  ---------------------------------------------------
+
+  [MEDIUM] args
+  Reference : Semgrep
+  File      : target_code/test2.rs
+  Line      : 7
+  Code      :
+      let args: Vec<String> = env::args().collect();
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] unsafe-usage
+  Reference : Semgrep
+  File      : target_code/test2.rs
+  Line      : 41 - 45
+  Code      :
+      unsafe {
+              let ptr = arr.as_ptr();
+              let val = *ptr.add(10);
+              println!("Unsafe val: {}", val);
+          }
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [MEDIUM] unsafe-usage
+  Reference : Semgrep
+  File      : target_code/test2.rs
+  Line      : 52 - 55
+  Code      :
+      unsafe {
+              let y: f32 = mem::transmute(x);
+              println!("Transmuted: {}", y);
+          }
+  Source    : semgrep
+  ---------------------------------------------------
+
+  [LOW] error-handling
+  Reference : N/A
+  File      : target_code/test2.rs
+  Line      : 23 - 24
+  Code      :
+      .expect("failed");
+  Source    : regex
+  ---------------------------------------------------
+
+  [LOW] error-handling
+  Reference : N/A
+  File      : target_code/test2.rs
+  Line      : 32 - 33
+  Code      :
+      let content = fs::read_to_string(file).unwrap();
+              println!("{}", content);
+  Source    : regex
+  ---------------------------------------------------
+

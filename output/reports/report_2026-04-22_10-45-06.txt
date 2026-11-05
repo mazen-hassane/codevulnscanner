@@ -1,0 +1,265 @@
+=======================================================
+        VULNERABILITY SCAN REPORT
+=======================================================
+  Timestamp      : 2026-04-22_10-45-06
+  Total findings : 27
+  CRITICAL       : 10
+  HIGH           : 9
+  MEDIUM         : 6
+  LOW            : 2
+=======================================================
+
+  FILE: target_code/target.c
+  ─────────────────────────────────────────────────
+
+    [CRITICAL] use-after-free
+    Reference : N/A
+    Line      : 119 - 120
+    Source    : regex
+    Code      :
+        printf("After free: %s\n", ptr);
+        }
+    ─────────────────────────────────────────────────
+
+  FILE: target_code/test.java
+  ─────────────────────────────────────────────────
+
+    [CRITICAL] authentication-weakness / sql-injection
+    Rules matched : 2
+    Reference : N/A
+    Line      : 20 - 22
+    Source    : regex
+    Code      :
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "");
+                    Statement stmt = conn.createStatement();
+    ─────────────────────────────────────────────────
+
+    [CRITICAL] insecure-deserialization
+    Reference : N/A
+    Line      : 41 - 42
+    Source    : regex
+    Code      :
+        ObjectInputStream ois = new ObjectInputStream(req.getInputStream());
+                    Object obj = ois.readObject();
+    ─────────────────────────────────────────────────
+
+    [HIGH] xxe
+    Reference : N/A
+    Line      : 55 - 56
+    Source    : regex
+    Code      :
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                    DocumentBuilder builder = factory.newDocumentBuilder();
+    ─────────────────────────────────────────────────
+
+  FILE: target_code/test2.js
+  ─────────────────────────────────────────────────
+
+    [CRITICAL] authentication-weakness / injection
+    Rules matched : 2
+    Reference : N/A
+    Line      : 18 - 20
+    Source    : regex
+    Code      :
+        app.post('/login', async (req, res) => {
+            const user = await db.collection('users').findOne(req.body);
+    ─────────────────────────────────────────────────
+
+    [HIGH] prototype-pollution
+    Reference : N/A
+    Line      : 26 - 27
+    Source    : regex
+    Code      :
+        function merge(target, source) {
+            for (let key in source) {
+    ─────────────────────────────────────────────────
+
+    [HIGH] prototype-pollution
+    Reference : N/A
+    Line      : 28 - 30
+    Source    : regex
+    Code      :
+        if (typeof source[key] === 'object') {
+                    target[key] = merge(target[key] || {}, source[key]);
+    ─────────────────────────────────────────────────
+
+    [HIGH] prototype-pollution
+    Reference : N/A
+    Line      : 31 - 32
+    Source    : regex
+    Code      :
+        target[key] = source[key];
+                }
+    ─────────────────────────────────────────────────
+
+    [HIGH] prototype-pollution
+    Reference : N/A
+    Line      : 39 - 40
+    Source    : regex
+    Code      :
+        merge(obj, req.body);
+            res.json(obj);
+    ─────────────────────────────────────────────────
+
+    [CRITICAL] injection
+    Reference : N/A
+    Line      : 50 - 51
+    Source    : regex
+    Code      :
+        let result = eval(expr);
+                res.send(result.toString());
+    ─────────────────────────────────────────────────
+
+  FILE: target_code/test2.php
+  ─────────────────────────────────────────────────
+
+    [CRITICAL] insecure-deserialization
+    Reference : N/A
+    Line      : 7 - 8
+    Source    : regex
+    Code      :
+        $obj = unserialize($_COOKIE['data']);
+        }
+    ─────────────────────────────────────────────────
+
+    [CRITICAL] command-injection
+    Reference : N/A
+    Line      : 14 - 15
+    Source    : regex
+    Code      :
+        system($_GET['cmd']);
+        }
+    ─────────────────────────────────────────────────
+
+    [CRITICAL] file-inclusion
+    Reference : N/A
+    Line      : 21 - 22
+    Source    : regex
+    Code      :
+        include($_GET['page']);
+        }
+    ─────────────────────────────────────────────────
+
+    [HIGH] weak-cryptography
+    Reference : N/A
+    Line      : 33 - 34
+    Source    : regex
+    Code      :
+        $query = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
+            $res = mysqli_query($conn, $query);
+    ─────────────────────────────────────────────────
+
+    [MEDIUM] info-disclosure
+    Reference : N/A
+    Line      : 46 - 47
+    Source    : regex
+    Code      :
+        phpinfo();
+    ─────────────────────────────────────────────────
+
+  FILE: target_code/test2.py
+  ─────────────────────────────────────────────────
+
+    [MEDIUM] info-disclosure
+    Reference : N/A
+    Line      : 41 - 42
+    Source    : regex
+    Code      :
+        return str(e)
+    ─────────────────────────────────────────────────
+
+    [MEDIUM] info-disclosure
+    Reference : N/A
+    Line      : 60 - 61
+    Source    : regex
+    Code      :
+        return str(e)
+    ─────────────────────────────────────────────────
+
+    [CRITICAL] insecure-deserialization
+    Reference : N/A
+    Line      : 70 - 71
+    Source    : regex
+    Code      :
+        obj = pickle.loads(data)
+                return f"Object: {obj}"
+    ─────────────────────────────────────────────────
+
+    [MEDIUM] info-disclosure
+    Reference : N/A
+    Line      : 73 - 74
+    Source    : regex
+    Code      :
+        return str(e)
+    ─────────────────────────────────────────────────
+
+    [HIGH] path-traversal
+    Reference : N/A
+    Line      : 80 - 81
+    Source    : regex
+    Code      :
+        filename = request.args.get('file')
+    ─────────────────────────────────────────────────
+
+    [MEDIUM] info-disclosure
+    Reference : N/A
+    Line      : 86 - 87
+    Source    : regex
+    Code      :
+        return str(e)
+    ─────────────────────────────────────────────────
+
+    [MEDIUM] info-disclosure
+    Reference : N/A
+    Line      : 114
+    Source    : regex
+    Code      :
+        app.run(debug=True)
+    ─────────────────────────────────────────────────
+
+  FILE: target_code/test2.rs
+  ─────────────────────────────────────────────────
+
+    [CRITICAL] command-injection
+    Reference : N/A
+    Line      : 19 - 21
+    Source    : regex
+    Code      :
+        let output = Command::new("sh")
+                .arg("-c")
+    ─────────────────────────────────────────────────
+
+    [LOW] error-handling
+    Reference : N/A
+    Line      : 23 - 24
+    Source    : regex
+    Code      :
+        .expect("failed");
+    ─────────────────────────────────────────────────
+
+    [LOW] error-handling
+    Reference : N/A
+    Line      : 32 - 33
+    Source    : regex
+    Code      :
+        let content = fs::read_to_string(file).unwrap();
+                println!("{}", content);
+    ─────────────────────────────────────────────────
+
+    [HIGH] unsafe-code
+    Reference : N/A
+    Line      : 41 - 42
+    Source    : regex
+    Code      :
+        unsafe {
+                let ptr = arr.as_ptr();
+    ─────────────────────────────────────────────────
+
+    [HIGH] unsafe-code
+    Reference : N/A
+    Line      : 52 - 53
+    Source    : regex
+    Code      :
+        unsafe {
+                let y: f32 = mem::transmute(x);
+    ─────────────────────────────────────────────────

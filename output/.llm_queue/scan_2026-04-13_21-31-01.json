@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "timestamp": "2026-04-13_21-31-01",
+    "total": 22,
+    "critical": 10,
+    "high": 12,
+    "medium": 0,
+    "low": 0
+  },
+  "findings": [
+    {
+      "file": "target_code/target2.c",
+      "line_start": 13,
+      "line_end": 14,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char reserved[7];\n} PacketHeader;",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 16,
+      "line_end": 17,
+      "type": "missing-validation",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "void process_network_packet(uint8_t *raw_data, size_t total_length) {\n    if (total_length < HEADER_SIZE) {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 17,
+      "line_end": 18,
+      "type": "missing-validation",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "if (total_length < HEADER_SIZE) {\n        printf(\"Packet too small.\\n\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "memcpy(&header, raw_data, HEADER_SIZE);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "missing-validation",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "memcpy(&header, raw_data, HEADER_SIZE);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "missing-validation",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "memcpy(&header, raw_data, HEADER_SIZE);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "user-controlled-input",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "memcpy(&header, raw_data, HEADER_SIZE);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "user-controlled-input",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "memcpy(&header, raw_data, HEADER_SIZE);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "user-controlled-input",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "memcpy(&header, raw_data, HEADER_SIZE);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "user-controlled-input",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "memcpy(&header, raw_data, HEADER_SIZE);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 28,
+      "line_end": 29,
+      "type": "integer-underflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "size_t adjusted_length = header.payload_length - 1;",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 28,
+      "line_end": 29,
+      "type": "missing-validation",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "size_t adjusted_length = header.payload_length - 1;",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 46,
+      "line_end": 47,
+      "type": "off-by-one",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "for (size_t i = 0; i <= adjusted_length; i++) {\n        payload_buffer[i] = raw_data[HEADER_SIZE + i];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 46,
+      "line_end": 47,
+      "type": "off-by-one",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "for (size_t i = 0; i <= adjusted_length; i++) {\n        payload_buffer[i] = raw_data[HEADER_SIZE + i];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 46,
+      "line_end": 47,
+      "type": "off-by-one",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "for (size_t i = 0; i <= adjusted_length; i++) {\n        payload_buffer[i] = raw_data[HEADER_SIZE + i];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 46,
+      "line_end": 47,
+      "type": "off-by-one",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "for (size_t i = 0; i <= adjusted_length; i++) {\n        payload_buffer[i] = raw_data[HEADER_SIZE + i];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 47,
+      "line_end": 48,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "payload_buffer[i] = raw_data[HEADER_SIZE + i];\n    }",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 47,
+      "line_end": 48,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "payload_buffer[i] = raw_data[HEADER_SIZE + i];\n    }",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 47,
+      "line_end": 48,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "payload_buffer[i] = raw_data[HEADER_SIZE + i];\n    }",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 47,
+      "line_end": 48,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "payload_buffer[i] = raw_data[HEADER_SIZE + i];\n    }",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 54,
+      "line_end": 55,
+      "type": "use-after-free",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "free(payload_buffer);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target2.c",
+      "line_start": 59,
+      "line_end": 60,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "uint8_t dummy_packet[30] = {0};\n    process_network_packet(dummy_packet, 30);",
+      "source": "regex"
+    }
+  ]
+}

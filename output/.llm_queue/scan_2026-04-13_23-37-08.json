@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "timestamp": "2026-04-13_23-37-08",
+    "total": 15,
+    "critical": 8,
+    "high": 6,
+    "medium": 1,
+    "low": 0
+  },
+  "findings": [
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 22,
+      "type": "sql-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "Statement stmt = conn.createStatement();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());\n            Object obj = ois.readObject();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 56,
+      "type": "xxe",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();\n            DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "Statement stmt = conn.createStatement();\n\n            String query = \"SELECT * FROM users WHERE username='\" + username + \"' AND password='\" + password + \"'\";\n            ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string-deepsemgrep",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "jdbc-sqli",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "object-deserialization",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "objectinputstream-deserialization-servlets",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 44,
+      "line_end": 44,
+      "type": "no-direct-response-writer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "resp.getWriter().println(\"Received: \" + obj);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parameter-entity",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parse",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 56,
+      "line_end": 56,
+      "type": "documentbuilderfactory-disallow-doctype-decl-missing",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "semgrep"
+    }
+  ]
+}

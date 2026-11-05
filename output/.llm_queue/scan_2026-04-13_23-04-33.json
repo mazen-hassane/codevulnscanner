@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "timestamp": "2026-04-13_23-04-33",
+    "total": 18,
+    "critical": 4,
+    "high": 9,
+    "medium": 5,
+    "low": 0
+  },
+  "findings": [
+    {
+      "file": "target_code/test2.js",
+      "line_start": 18,
+      "line_end": 19,
+      "type": "authentication-weakness",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "app.post('/login', async (req, res) => {\n    const user = await db.collection('users').findOne(req.body);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "const user = await db.collection('users').findOne(req.body);\n    res.send(user ? \"Logged in\" : \"Denied\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 26,
+      "line_end": 27,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "function merge(target, source) {\n    for (let key in source) {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 28,
+      "line_end": 29,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "if (typeof source[key] === 'object') {\n            target[key] = merge(target[key] || {}, source[key]);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 29,
+      "line_end": 30,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "target[key] = merge(target[key] || {}, source[key]);\n        } else {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 31,
+      "line_end": 32,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "target[key] = source[key];\n        }",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 39,
+      "line_end": 40,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "merge(obj, req.body);\n    res.json(obj);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 51,
+      "type": "injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let result = eval(expr);\n        res.send(result.toString());",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 4,
+      "line_end": 4,
+      "type": "express-check-csurf-middleware-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const app = express();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 19,
+      "type": "express-mongo-nosqli",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const user = await db.collection('users').findOne(req.body);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-detected",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "code-string-concat",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-express",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(result.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "express-child-process",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "detect-child-process",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 80,
+      "line_end": 80,
+      "type": "express-fs-filename",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let data = fs.readFileSync(file);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 81,
+      "line_end": 81,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(data.toString());",
+      "source": "semgrep"
+    }
+  ]
+}

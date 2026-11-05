@@ -1,0 +1,362 @@
+{
+  "meta": {
+    "timestamp": "2026-04-22_10-45-06",
+    "total": 35,
+    "critical": 16,
+    "high": 10,
+    "medium": 7,
+    "low": 2
+  },
+  "findings": [
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 120,
+      "type": "use-after-free",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "printf(\"After free: %s\\n\", ptr);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 60,
+      "line_end": 61,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 71,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "obj = pickle.loads(data)\n        return f\"Object: {obj}\"",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 73,
+      "line_end": 74,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 81,
+      "type": "path-traversal",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "filename = request.args.get('file')",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 86,
+      "line_end": 87,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "app.run(debug=True)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 18,
+      "line_end": 19,
+      "type": "authentication-weakness",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "app.post('/login', async (req, res) => {\n    const user = await db.collection('users').findOne(req.body);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "const user = await db.collection('users').findOne(req.body);\n    res.send(user ? \"Logged in\" : \"Denied\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 26,
+      "line_end": 27,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "function merge(target, source) {\n    for (let key in source) {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 28,
+      "line_end": 29,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "if (typeof source[key] === 'object') {\n            target[key] = merge(target[key] || {}, source[key]);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 29,
+      "line_end": 30,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "target[key] = merge(target[key] || {}, source[key]);\n        } else {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 31,
+      "line_end": 32,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "target[key] = source[key];\n        }",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 39,
+      "line_end": 40,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "merge(obj, req.body);\n    res.json(obj);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 51,
+      "type": "injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let result = eval(expr);\n        res.send(result.toString());",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 20,
+      "line_end": 21,
+      "type": "authentication-weakness",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "Connection conn = DriverManager.getConnection(\"jdbc:mysql://localhost/test\", \"root\", \"\");\n            Statement stmt = conn.createStatement();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 22,
+      "type": "sql-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "Statement stmt = conn.createStatement();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());\n            Object obj = ois.readObject();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 56,
+      "type": "xxe",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();\n            DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 15,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "system($_GET['cmd']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 22,
+      "type": "file-inclusion",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "include($_GET['page']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 34,
+      "type": "weak-cryptography",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";\n    $res = mysqli_query($conn, $query);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 47,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "phpinfo();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let output = Command::new(\"sh\")\n        .arg(\"-c\")",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let output = Command::new(\"sh\")\n        .arg(\"-c\")",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 20,
+      "line_end": 21,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": ".arg(\"-c\")\n        .arg(user_input)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "error-handling",
+      "severity": "LOW",
+      "reference": "N/A",
+      "code": ".expect(\"failed\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 32,
+      "line_end": 33,
+      "type": "error-handling",
+      "severity": "LOW",
+      "reference": "N/A",
+      "code": "let content = fs::read_to_string(file).unwrap();\n        println!(\"{}\", content);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "unsafe-code",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "unsafe {\n        let ptr = arr.as_ptr();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 52,
+      "line_end": 53,
+      "type": "unsafe-code",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "unsafe {\n        let y: f32 = mem::transmute(x);",
+      "source": "regex"
+    }
+  ]
+}

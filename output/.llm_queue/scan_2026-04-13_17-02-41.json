@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "timestamp": "2026-04-13_17-02-41",
+    "total": 12,
+    "critical": 2,
+    "high": 9,
+    "medium": 1,
+    "low": 0
+  },
+  "findings": [
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 40,
+      "type": "format-string-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "printf(input);  // \u274c format string vulnerability",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 54,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 74,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 77,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);  // \u274c injection",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 79,
+      "type": "dont-call-system",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system(full_cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 89,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 112,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 119,
+      "type": "local-variable-malloc-free",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "printf(\"After free: %s\\n\", ptr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 139,
+      "line_end": 139,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    }
+  ]
+}

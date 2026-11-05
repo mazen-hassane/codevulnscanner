@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "timestamp": "2026-08-04_00-07-27",
+    "total": 8,
+    "critical": 2,
+    "high": 6,
+    "medium": 0,
+    "low": 0
+  },
+  "findings": [
+    {
+      "file": "target_code/target.c",
+      "line_start": 120,
+      "line_end": 121,
+      "type": "use-after-free",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "printf(\"After free: %s\\n\", ptr);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 27,
+      "line_end": 27,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 52,
+      "line_end": 52,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 75,
+      "line_end": 75,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 90,
+      "line_end": 90,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 113,
+      "line_end": 113,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 140,
+      "line_end": 140,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    }
+  ]
+}

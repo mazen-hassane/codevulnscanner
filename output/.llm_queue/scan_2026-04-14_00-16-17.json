@@ -1,0 +1,4282 @@
+{
+  "meta": {
+    "timestamp": "2026-04-14_00-16-17",
+    "total": 427,
+    "critical": 179,
+    "high": 177,
+    "medium": 69,
+    "low": 2
+  },
+  "findings": [
+    {
+      "file": "target_code/target.c",
+      "line_start": 9,
+      "line_end": 10,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char username[32];\n    char password[32];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 10,
+      "line_end": 11,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char password[32];\n};",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 13,
+      "line_end": 14,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "struct User users[MAX_USERS] = {\n    {\"admin\", \"admin123\"},",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char buffer[64];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 27,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "gets(buffer);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 35,
+      "line_end": 36,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char input[128];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 41,
+      "type": "format-string",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "printf(input);  \n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 47,
+      "line_end": 48,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char username[32];\n    char password[32];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 48,
+      "line_end": 49,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char password[32];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 52,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "scanf(\"%s\", username);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 55,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "scanf(\"%s\", password);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 57,
+      "line_end": 58,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "if (strcmp(username, users[i].username) == 0 &&\n            strcmp(password, users[i].password) == 0) {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 58,
+      "line_end": 59,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "strcmp(password, users[i].password) == 0) {\n            printf(\"Login success!\\n\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 71,
+      "line_end": 72,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char cmd[128];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 75,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 76,
+      "line_end": 77,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char full_cmd[256];\n    sprintf(full_cmd, \"ls %s\", cmd);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 78,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 80,
+      "type": "dangerous-function",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "system(full_cmd);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 86,
+      "line_end": 87,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char filename[128];",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 90,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "scanf(\"%s\", filename);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 91,
+      "line_end": 92,
+      "type": "missing-validation",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "FILE *f = fopen(filename, \"r\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 98,
+      "line_end": 99,
+      "type": "out-of-bounds-read",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char line[256];\n    while (fgets(line, sizeof(line), f)) {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 110,
+      "line_end": 111,
+      "type": "missing-validation",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "char *ptr = malloc(10);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 110,
+      "line_end": 111,
+      "type": "kernel-vulnerability",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "char *ptr = malloc(10);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 113,
+      "type": "buffer-overflow",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 116,
+      "line_end": 117,
+      "type": "use-after-free",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "free(ptr);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 40,
+      "type": "format-string-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "printf(input);  // \u274c format string vulnerability",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 54,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 74,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 77,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);  // \u274c injection",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 79,
+      "type": "dont-call-system",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system(full_cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 89,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 112,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 119,
+      "type": "local-variable-malloc-free",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "printf(\"After free: %s\\n\", ptr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 139,
+      "line_end": 139,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "Statement stmt = conn.createStatement();\n\n            String query = \"SELECT * FROM users WHERE username='\" + username + \"' AND password='\" + password + \"'\";\n            ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string-deepsemgrep",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "jdbc-sqli",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "object-deserialization",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "objectinputstream-deserialization-servlets",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 44,
+      "line_end": 44,
+      "type": "no-direct-response-writer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "resp.getWriter().println(\"Received: \" + obj);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parameter-entity",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parse",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 56,
+      "line_end": 56,
+      "type": "documentbuilderfactory-disallow-doctype-decl-missing",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 4,
+      "line_end": 4,
+      "type": "express-check-csurf-middleware-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const app = express();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 19,
+      "type": "express-mongo-nosqli",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const user = await db.collection('users').findOne(req.body);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-detected",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "code-string-concat",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-express",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(result.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "express-child-process",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "detect-child-process",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 80,
+      "line_end": 80,
+      "type": "express-fs-filename",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let data = fs.readFileSync(file);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 81,
+      "line_end": 81,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(data.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "unserialize-use",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "$obj = unserialize($_COOKIE['data']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-command-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "exec-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "laravel-command-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "tainted-path-traversal",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "laravel-path-traversal",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 33,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "laravel-native-sql-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "$res = mysqli_query($conn, $query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 46,
+      "type": "phpinfo-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "phpinfo();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "sqlalchemy-execute-raw-query",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "generic-sql-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-injection",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "tainted-os-command-stdlib-flask-secure-default",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "dangerous-subprocess-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-shell-true",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "avoid-pickle",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "tainted-pickle-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 86,
+      "type": "path-traversal-open",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "filename = request.args.get('file')\n\n    try:\n        with open(filename, 'r') as f:\n            return f.read()\n    except Exception as e:\n        return str(e)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "path-traversal-open",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "tainted-path-traversal-stdlib-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "active-debug-code-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "debug-enabled",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 60,
+      "line_end": 61,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 71,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "obj = pickle.loads(data)\n        return f\"Object: {obj}\"",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 73,
+      "line_end": 74,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 81,
+      "type": "path-traversal",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "filename = request.args.get('file')",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 86,
+      "line_end": 87,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "app.run(debug=True)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 40,
+      "type": "format-string-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "printf(input);  // \u274c format string vulnerability",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 54,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 74,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 77,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);  // \u274c injection",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 79,
+      "type": "dont-call-system",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system(full_cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 89,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 112,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 119,
+      "type": "local-variable-malloc-free",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "printf(\"After free: %s\\n\", ptr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 139,
+      "line_end": 139,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "Statement stmt = conn.createStatement();\n\n            String query = \"SELECT * FROM users WHERE username='\" + username + \"' AND password='\" + password + \"'\";\n            ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string-deepsemgrep",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "jdbc-sqli",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "object-deserialization",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "objectinputstream-deserialization-servlets",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 44,
+      "line_end": 44,
+      "type": "no-direct-response-writer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "resp.getWriter().println(\"Received: \" + obj);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parameter-entity",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parse",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 56,
+      "line_end": 56,
+      "type": "documentbuilderfactory-disallow-doctype-decl-missing",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 4,
+      "line_end": 4,
+      "type": "express-check-csurf-middleware-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const app = express();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 19,
+      "type": "express-mongo-nosqli",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const user = await db.collection('users').findOne(req.body);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-detected",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "code-string-concat",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-express",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(result.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "express-child-process",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "detect-child-process",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 80,
+      "line_end": 80,
+      "type": "express-fs-filename",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let data = fs.readFileSync(file);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 81,
+      "line_end": 81,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(data.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "unserialize-use",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "$obj = unserialize($_COOKIE['data']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-command-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "exec-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "laravel-command-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "tainted-path-traversal",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "laravel-path-traversal",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 33,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "laravel-native-sql-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "$res = mysqli_query($conn, $query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 46,
+      "type": "phpinfo-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "phpinfo();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "sqlalchemy-execute-raw-query",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "generic-sql-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-injection",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "tainted-os-command-stdlib-flask-secure-default",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "dangerous-subprocess-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-shell-true",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "avoid-pickle",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "tainted-pickle-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 86,
+      "type": "path-traversal-open",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "filename = request.args.get('file')\n\n    try:\n        with open(filename, 'r') as f:\n            return f.read()\n    except Exception as e:\n        return str(e)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "path-traversal-open",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "tainted-path-traversal-stdlib-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "active-debug-code-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "debug-enabled",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 18,
+      "line_end": 19,
+      "type": "authentication-weakness",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "app.post('/login', async (req, res) => {\n    const user = await db.collection('users').findOne(req.body);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "const user = await db.collection('users').findOne(req.body);\n    res.send(user ? \"Logged in\" : \"Denied\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 26,
+      "line_end": 27,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "function merge(target, source) {\n    for (let key in source) {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 28,
+      "line_end": 29,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "if (typeof source[key] === 'object') {\n            target[key] = merge(target[key] || {}, source[key]);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 29,
+      "line_end": 30,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "target[key] = merge(target[key] || {}, source[key]);\n        } else {",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 31,
+      "line_end": 32,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "target[key] = source[key];\n        }",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 39,
+      "line_end": 40,
+      "type": "prototype-pollution",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "merge(obj, req.body);\n    res.json(obj);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 51,
+      "type": "injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let result = eval(expr);\n        res.send(result.toString());",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 40,
+      "type": "format-string-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "printf(input);  // \u274c format string vulnerability",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 54,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 74,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 77,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);  // \u274c injection",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 79,
+      "type": "dont-call-system",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system(full_cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 89,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 112,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 119,
+      "type": "local-variable-malloc-free",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "printf(\"After free: %s\\n\", ptr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 139,
+      "line_end": 139,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "Statement stmt = conn.createStatement();\n\n            String query = \"SELECT * FROM users WHERE username='\" + username + \"' AND password='\" + password + \"'\";\n            ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string-deepsemgrep",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "jdbc-sqli",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "object-deserialization",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "objectinputstream-deserialization-servlets",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 44,
+      "line_end": 44,
+      "type": "no-direct-response-writer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "resp.getWriter().println(\"Received: \" + obj);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parameter-entity",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parse",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 56,
+      "line_end": 56,
+      "type": "documentbuilderfactory-disallow-doctype-decl-missing",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 4,
+      "line_end": 4,
+      "type": "express-check-csurf-middleware-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const app = express();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 19,
+      "type": "express-mongo-nosqli",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const user = await db.collection('users').findOne(req.body);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-detected",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "code-string-concat",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-express",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(result.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "express-child-process",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "detect-child-process",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 80,
+      "line_end": 80,
+      "type": "express-fs-filename",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let data = fs.readFileSync(file);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 81,
+      "line_end": 81,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(data.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "unserialize-use",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "$obj = unserialize($_COOKIE['data']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-command-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "exec-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "laravel-command-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "tainted-path-traversal",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "laravel-path-traversal",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 33,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "laravel-native-sql-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "$res = mysqli_query($conn, $query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 46,
+      "type": "phpinfo-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "phpinfo();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "sqlalchemy-execute-raw-query",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "generic-sql-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-injection",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "tainted-os-command-stdlib-flask-secure-default",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "dangerous-subprocess-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-shell-true",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "avoid-pickle",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "tainted-pickle-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 86,
+      "type": "path-traversal-open",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "filename = request.args.get('file')\n\n    try:\n        with open(filename, 'r') as f:\n            return f.read()\n    except Exception as e:\n        return str(e)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "path-traversal-open",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "tainted-path-traversal-stdlib-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "active-debug-code-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "debug-enabled",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 22,
+      "type": "sql-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "Statement stmt = conn.createStatement();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());\n            Object obj = ois.readObject();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 56,
+      "type": "xxe",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();\n            DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 40,
+      "type": "format-string-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "printf(input);  // \u274c format string vulnerability",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 54,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 74,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 77,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);  // \u274c injection",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 79,
+      "type": "dont-call-system",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system(full_cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 89,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 112,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 119,
+      "type": "local-variable-malloc-free",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "printf(\"After free: %s\\n\", ptr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 139,
+      "line_end": 139,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "Statement stmt = conn.createStatement();\n\n            String query = \"SELECT * FROM users WHERE username='\" + username + \"' AND password='\" + password + \"'\";\n            ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string-deepsemgrep",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "jdbc-sqli",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "object-deserialization",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "objectinputstream-deserialization-servlets",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 44,
+      "line_end": 44,
+      "type": "no-direct-response-writer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "resp.getWriter().println(\"Received: \" + obj);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parameter-entity",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parse",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 56,
+      "line_end": 56,
+      "type": "documentbuilderfactory-disallow-doctype-decl-missing",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 4,
+      "line_end": 4,
+      "type": "express-check-csurf-middleware-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const app = express();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 19,
+      "type": "express-mongo-nosqli",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const user = await db.collection('users').findOne(req.body);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-detected",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "code-string-concat",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-express",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(result.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "express-child-process",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "detect-child-process",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 80,
+      "line_end": 80,
+      "type": "express-fs-filename",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let data = fs.readFileSync(file);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 81,
+      "line_end": 81,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(data.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "unserialize-use",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "$obj = unserialize($_COOKIE['data']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-command-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "exec-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "laravel-command-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "tainted-path-traversal",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "laravel-path-traversal",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 33,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "laravel-native-sql-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "$res = mysqli_query($conn, $query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 46,
+      "type": "phpinfo-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "phpinfo();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "sqlalchemy-execute-raw-query",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "generic-sql-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-injection",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "tainted-os-command-stdlib-flask-secure-default",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "dangerous-subprocess-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-shell-true",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "avoid-pickle",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "tainted-pickle-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 86,
+      "type": "path-traversal-open",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "filename = request.args.get('file')\n\n    try:\n        with open(filename, 'r') as f:\n            return f.read()\n    except Exception as e:\n        return str(e)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "path-traversal-open",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "tainted-path-traversal-stdlib-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "active-debug-code-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "debug-enabled",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 8,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "$obj = unserialize($_COOKIE['data']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 15,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "system($_GET['cmd']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 22,
+      "type": "file-inclusion",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "include($_GET['page']);\n}",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 34,
+      "type": "weak-cryptography",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";\n    $res = mysqli_query($conn, $query);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 40,
+      "type": "format-string-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "printf(input);  // \u274c format string vulnerability",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 54,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 74,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 77,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);  // \u274c injection",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 79,
+      "type": "dont-call-system",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system(full_cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 89,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 112,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 119,
+      "type": "local-variable-malloc-free",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "printf(\"After free: %s\\n\", ptr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 139,
+      "line_end": 139,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "Statement stmt = conn.createStatement();\n\n            String query = \"SELECT * FROM users WHERE username='\" + username + \"' AND password='\" + password + \"'\";\n            ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string-deepsemgrep",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "jdbc-sqli",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "object-deserialization",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "objectinputstream-deserialization-servlets",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 44,
+      "line_end": 44,
+      "type": "no-direct-response-writer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "resp.getWriter().println(\"Received: \" + obj);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parameter-entity",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parse",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 56,
+      "line_end": 56,
+      "type": "documentbuilderfactory-disallow-doctype-decl-missing",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 4,
+      "line_end": 4,
+      "type": "express-check-csurf-middleware-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const app = express();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 19,
+      "type": "express-mongo-nosqli",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const user = await db.collection('users').findOne(req.body);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-detected",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "code-string-concat",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-express",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(result.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "express-child-process",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "detect-child-process",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 80,
+      "line_end": 80,
+      "type": "express-fs-filename",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let data = fs.readFileSync(file);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 81,
+      "line_end": 81,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(data.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "unserialize-use",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "$obj = unserialize($_COOKIE['data']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-command-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "exec-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "laravel-command-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "tainted-path-traversal",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "laravel-path-traversal",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 33,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "laravel-native-sql-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "$res = mysqli_query($conn, $query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 46,
+      "type": "phpinfo-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "phpinfo();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "sqlalchemy-execute-raw-query",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "generic-sql-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-injection",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "tainted-os-command-stdlib-flask-secure-default",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "dangerous-subprocess-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-shell-true",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "avoid-pickle",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "tainted-pickle-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 86,
+      "type": "path-traversal-open",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "filename = request.args.get('file')\n\n    try:\n        with open(filename, 'r') as f:\n            return f.read()\n    except Exception as e:\n        return str(e)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "path-traversal-open",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "tainted-path-traversal-stdlib-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "active-debug-code-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "debug-enabled",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let output = Command::new(\"sh\")\n        .arg(\"-c\")",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 19,
+      "line_end": 20,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "let output = Command::new(\"sh\")\n        .arg(\"-c\")",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 20,
+      "line_end": 21,
+      "type": "command-injection",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": ".arg(\"-c\")\n        .arg(user_input)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 23,
+      "line_end": 24,
+      "type": "error-handling",
+      "severity": "LOW",
+      "reference": "N/A",
+      "code": ".expect(\"failed\");",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 32,
+      "line_end": 33,
+      "type": "error-handling",
+      "severity": "LOW",
+      "reference": "N/A",
+      "code": "let content = fs::read_to_string(file).unwrap();\n        println!(\"{}\", content);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "unsafe-code",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "unsafe {\n        let ptr = arr.as_ptr();",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 52,
+      "line_end": 53,
+      "type": "unsafe-code",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "unsafe {\n        let y: f32 = mem::transmute(x);",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 26,
+      "line_end": 26,
+      "type": "insecure-use-gets-fn",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "gets(buffer);  // \u274c Buffer overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 40,
+      "line_end": 40,
+      "type": "format-string-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "printf(input);  // \u274c format string vulnerability",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", username);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 54,
+      "line_end": 54,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", password);  // \u274c no bounds checking",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 74,
+      "line_end": 74,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 77,
+      "line_end": 77,
+      "type": "unbounded-copy-to-stack-buffer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "sprintf(full_cmd, \"ls %s\", cmd);  // \u274c injection",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 79,
+      "line_end": 79,
+      "type": "dont-call-system",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system(full_cmd);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 89,
+      "line_end": 89,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%s\", filename);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 112,
+      "line_end": 112,
+      "type": "insecure-use-string-copy-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "strcpy(ptr, \"This string is too long for buffer\");  // \u274c overflow",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 119,
+      "line_end": 119,
+      "type": "local-variable-malloc-free",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "printf(\"After free: %s\\n\", ptr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/target.c",
+      "line_start": 139,
+      "line_end": 139,
+      "type": "insecure-use-scanf-fn",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "scanf(\"%d\", &choice);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 21,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "Statement stmt = conn.createStatement();\n\n            String query = \"SELECT * FROM users WHERE username='\" + username + \"' AND password='\" + password + \"'\";\n            ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "tainted-sql-from-http-request",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string-deepsemgrep",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "formatted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 24,
+      "line_end": 24,
+      "type": "jdbc-sqli",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ResultSet rs = stmt.executeQuery(query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "object-deserialization",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 41,
+      "line_end": 41,
+      "type": "objectinputstream-deserialization-servlets",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "ObjectInputStream ois = new ObjectInputStream(req.getInputStream());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 44,
+      "line_end": 44,
+      "type": "no-direct-response-writer",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "resp.getWriter().println(\"Received: \" + obj);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parameter-entity",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe-parse",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 55,
+      "line_end": 55,
+      "type": "documentbuilderfactory-xxe",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test.java",
+      "line_start": 56,
+      "line_end": 56,
+      "type": "documentbuilderfactory-disallow-doctype-decl-missing",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "DocumentBuilder builder = factory.newDocumentBuilder();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 4,
+      "line_end": 4,
+      "type": "express-check-csurf-middleware-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const app = express();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 19,
+      "line_end": 19,
+      "type": "express-mongo-nosqli",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "const user = await db.collection('users').findOne(req.body);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-detected",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "code-string-concat",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 50,
+      "line_end": 50,
+      "type": "eval-express",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let result = eval(expr);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 51,
+      "line_end": 51,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(result.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "express-child-process",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 65,
+      "line_end": 65,
+      "type": "detect-child-process",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "exec(cmd, (err, stdout, stderr) => {",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 80,
+      "line_end": 80,
+      "type": "express-fs-filename",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "let data = fs.readFileSync(file);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.js",
+      "line_start": 81,
+      "line_end": 81,
+      "type": "direct-response-write",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "res.send(data.toString());",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "unserialize-use",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "$obj = unserialize($_COOKIE['data']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-command-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "tainted-exec",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "exec-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 14,
+      "line_end": 14,
+      "type": "laravel-command-injection",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "system($_GET['cmd']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "tainted-path-traversal",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 21,
+      "line_end": 21,
+      "type": "laravel-path-traversal",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "include($_GET['page']);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 33,
+      "line_end": 33,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "$query = \"SELECT * FROM users WHERE username='$user' AND password='$pass'\";",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "laravel-native-sql-injection",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "$res = mysqli_query($conn, $query);",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.php",
+      "line_start": 46,
+      "line_end": 46,
+      "type": "phpinfo-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "phpinfo();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "sqlalchemy-execute-raw-query",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "generic-sql-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-injection",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "tainted-os-command-stdlib-flask-secure-default",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "dangerous-subprocess-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-shell-true",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "avoid-pickle",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "tainted-pickle-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 86,
+      "type": "path-traversal-open",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "filename = request.args.get('file')\n\n    try:\n        with open(filename, 'r') as f:\n            return f.read()\n    except Exception as e:\n        return str(e)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "path-traversal-open",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "tainted-path-traversal-stdlib-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "active-debug-code-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "debug-enabled",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 7,
+      "line_end": 7,
+      "type": "args",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "let args: Vec<String> = env::args().collect();",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 41,
+      "line_end": 45,
+      "type": "unsafe-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "unsafe {\n        let ptr = arr.as_ptr();\n        let val = *ptr.add(10);\n        println!(\"Unsafe val: {}\", val);\n    }",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.rs",
+      "line_start": 52,
+      "line_end": 55,
+      "type": "unsafe-usage",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "unsafe {\n        let y: f32 = mem::transmute(x);\n        println!(\"Transmuted: {}\", y);\n    }",
+      "source": "semgrep"
+    }
+  ]
+}

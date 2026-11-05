@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "timestamp": "2026-04-13_22-39-57",
+    "total": 23,
+    "critical": 12,
+    "high": 4,
+    "medium": 7,
+    "low": 0
+  },
+  "findings": [
+    {
+      "file": "target_code/test2.py",
+      "line_start": 41,
+      "line_end": 42,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 60,
+      "line_end": 61,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 71,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "N/A",
+      "code": "obj = pickle.loads(data)\n        return f\"Object: {obj}\"",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 73,
+      "line_end": 74,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 81,
+      "type": "path-traversal",
+      "severity": "HIGH",
+      "reference": "N/A",
+      "code": "filename = request.args.get('file')",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 86,
+      "line_end": 87,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "return str(e)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "info-disclosure",
+      "severity": "MEDIUM",
+      "reference": "N/A",
+      "code": "app.run(debug=True)",
+      "source": "regex"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 34,
+      "line_end": 34,
+      "type": "tainted-sql-string",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "query = \"SELECT * FROM users WHERE username = '\" + username + \"' AND password = '\" + password + \"'\"",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "sqlalchemy-execute-raw-query",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 38,
+      "line_end": 38,
+      "type": "generic-sql-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "c.execute(query)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-injection",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "tainted-os-command-stdlib-flask-secure-default",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "dangerous-subprocess-use",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 57,
+      "line_end": 57,
+      "type": "subprocess-shell-true",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "output = subprocess.check_output(\"ping -c 1 \" + host, shell=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "insecure-deserialization",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "avoid-pickle",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 70,
+      "line_end": 70,
+      "type": "tainted-pickle-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "obj = pickle.loads(data)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 80,
+      "line_end": 86,
+      "type": "path-traversal-open",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "filename = request.args.get('file')\n\n    try:\n        with open(filename, 'r') as f:\n            return f.read()\n    except Exception as e:\n        return str(e)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "path-traversal-open",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 83,
+      "line_end": 83,
+      "type": "tainted-path-traversal-stdlib-flask",
+      "severity": "CRITICAL",
+      "reference": "Semgrep",
+      "code": "with open(filename, 'r') as f:",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "active-debug-code-flask",
+      "severity": "MEDIUM",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    },
+    {
+      "file": "target_code/test2.py",
+      "line_start": 114,
+      "line_end": 114,
+      "type": "debug-enabled",
+      "severity": "HIGH",
+      "reference": "Semgrep",
+      "code": "app.run(debug=True)",
+      "source": "semgrep"
+    }
+  ]
+}
